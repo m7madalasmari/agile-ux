@@ -3,121 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <title>Agile UX Mindmap</title>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.4"></script>
     <style>
       html, body, svg {
-        margin: 0;
-        padding: 0;
         width: 100%;
         height: 100%;
-        direction: rtl;
+        margin: 0;
+        padding: 0;
         background-color: #1e1e1e;
-        color: white;
-        font-family: sans-serif;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
   </head>
   <body>
     <svg id="mindmap"></svg>
     <script>
-      const content = `# مدخل إلى التفكير الأجايل (Agile Thinking)
+      window.markmap = {
+        autoLoader: {
+          onReady() {
+            markmap.Markmap.create("svg#mindmap", null, `
+# مدخل إلى التفكير الأجايل (Agile Thinking)
 
 ## ما هي Agile؟
 - منهجية مرنة لإدارة المشاريع
-- تعتمد على التكرار (Iteration) والتطوير المستمر
-- تُشرك المستخدمين في كل مرحلة من مراحل التصميم
+- تعتمد على التكرار (Iteration)
+- إشراك المستخدم في كل مرحلة
 
 ## الفرق بين Discovery و Delivery
 ### Discovery:
 - فهم احتياجات المستخدم
-- البحث وصياغة الفرضيات
-- توليد الأفكار (Ideation)
+- توليد الأفكار
 ### Delivery:
 - تنفيذ الحلول
-- التصميم بالتفصيل
-- بناء واختبار النماذج
-- الإطلاق والتحسين المستمر
+- تحسين مستمر
 
 ## مقارنة بين Agile و Waterfall
 ### Agile:
-- مرونة في التغيير
-- تعاون مستمر
-- إصدار سريع ومبكر
-- قرارات مبنية على التعلم المستمر
+- مرونة وتكرار
+- تعاون سريع
 ### Waterfall:
-- خطوات متسلسلة وثابتة
-- صعوبة التغيير بعد البداية
-- تسليم نهائي بعد فترة طويلة
-- أقل تفاعل مع المستخدم أثناء التطوير
+- خطوات متسلسلة
+- صعوبة التغيير
 
-## أبرز مبادئ Agile
-- الأفراد والتفاعلات أهم من الأدوات
-- التعاون مع العميل أهم من العقود
-- الاستجابة للتغيير أهم من اتباع خطة ثابتة
-- العمل على منتج فعّال أهم من التوثيق الشامل
+## فريق Agile
+- Product Owner
+- Scrum Master
+- UX Designer
+- Developers
+- Researchers
 
-## من يتكوّن منه فريق Agile؟
-- Product Owner: صاحب الرؤية ومسؤول ترتيب الأولويات
-- Scrum Master: يسهل العمل ويزيل العوائق
-- UX Designer: يصمم التجربة بناءً على احتياجات المستخدم
-- Developers: ينفذون الحلول التقنية
-- Researchers: يوفرون الفهم العميق من خلال البحث
+## البحث في Agile
+- متى؟ عند تطوير أو تحسين
+- لماذا؟ لفهم المستخدم
+- كيف؟ Usability Testing, A/B Testing...
 
-## البحث في بيئة Agile: متى، ولماذا، وكيف؟
-- **متى؟**
-  - عند استكشاف مشكلة
-  - عند تطوير ميزة جديدة
-  - عند تحسين تجربة قائمة
-- **لماذا؟**
-  - لفهم سلوك المستخدم ودعم اتخاذ القرار
-  - لتقليل المخاطر وتوفير الوقت والموارد
-- **كيف؟**
-  - Usability Testing
-  - Contextual Inquiry
-  - Diary Studies
-  - A/B Testing
-  - Guerilla Testing
-  - Surveys & Interviews
-
-## أهم المفاهيم والمصطلحات
-- **Sprint:** دورة تطوير قصيرة (1-2 أسبوع)
-- **Sprint Zero:** مرحلة تمهيدية للتخطيط والبحث قبل أول Sprint فعلي
-- **MVP (Minimum Viable Product):** نموذج أولي لاختبار الفكرة بأقل مجهود
-- **Epic:** هدف كبير يُقسّم إلى مهام (User Stories)
-- **User Story:** وصف مختصر لاحتياج المستخدم
-- **Acceptance Criteria:** شروط قبول القصة من قبل الفريق
-- **Kanban Board:** أداة لتتبع المهام بصريًا حسب حالتها
-
-## التحديات في بيئة Agile
-- ضيق الوقت وكثرة التغييرات
-- صعوبة تنسيق التصميم مع التطوير داخل السبرينت
-- ضغط تسليمات متكررة
-- ضعف مشاركة فريق UX أحيانًا في التخطيط
-- مقاومة بعض الأطراف لفكرة النماذج الأولية البسيطة
-
-## رحلة تطوير ميزة داخل فريق Agile
-- الفكرة
-- البحث (أو جمع ملاحظات المستخدمين)
-- التصميم الأولي
-- اختبار مبكر
-- التنفيذ الجزئي (Slice أو MVP)
-- الإطلاق التجريبي
-- تحليل النتائج
-- تحسين وتكرار
-
-## عوامل تساعد UX على النجاح في Agile
-- السرعة في اختبار الفرضيات
-- مشاركة التصميمات الأولية مبكرًا
-- توثيق خفيف وسهل الفهم
-- القدرة على التواصل الفعّال مع الفريق
-- التركيز على "Good Enough" وليس الكمال
-- استخدام Design Systems لدعم السرعة والاتساق
-`;
-
-      const mindmap = markmap.Markmap.create("#mindmap");
-      mindmap.setData(markmap.Transformer.transform(content));
-      mindmap.fit();
+## المفاهيم
+- Sprint
+- MVP
+- Epic
+- User Story
+- Acceptance Criteria
+            `);
+          }
+        }
+      };
     </script>
   </body>
 </html>
